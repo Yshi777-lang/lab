@@ -1,0 +1,11 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="16dp">
+    <EditText android:id="@+id/urlBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/hint" android:inputType="textUri"/>
+    <Button android:id="@+id/checkBtn" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/check"/>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <Button android:id="@+id/btnGithub" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="GitHub" android:textSize="12sp"/>
+        <Button android:id="@+id/btnGoogle" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Google" android:textSize="12sp"/>
+        <Button android:id="@+id/btnQwen" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Qwen" android:textSize="12sp"/>
+        <Button android:id="@+id/btnAppteka" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Appteka" android:textSize="12sp"/>
+    </LinearLayout>
+    <TextView android:id="@+id/result" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="@string/wait"/>
+</LinearLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Неон Чекер</string>
+    <string name="hint">Вставь URL</string>
+    <string name="check">Проверить</string>
+    <string name="checking">Проверяю…</string>
+    <string name="wait">Выбери кнопку или вставь URL</string>
+    <string name="ok">✅ Доступно:</string>
+    <string name="fail">❌ Недоступно:</string>
+    <string name="ms">мс</string>
+</resources>

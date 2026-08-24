@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Neon Checker</string>
+    <string name="hint">Paste URL</string>
+    <string name="check">Check</string>
+    <string name="checking">Checking…</string>
+    <string name="wait">Pick a button or paste URL</string>
+    <string name="ok">✅ Available:</string>
+    <string name="fail">❌ Unavailable:</string>
+    <string name="ms">ms</string>
+</resources>
