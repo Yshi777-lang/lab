@@ -1,0 +1,13 @@
+name: test0
+on: [push]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello from Actions $(date)" > hello.txt
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: test0
+          files: hello.txt
