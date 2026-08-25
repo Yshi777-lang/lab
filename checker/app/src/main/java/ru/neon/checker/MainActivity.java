@@ -16,9 +16,9 @@ public class MainActivity extends Activity {
     TextView result;
     Handler ui = new Handler(Looper.getMainLooper());
 
-    static final String LISTS_URL = "https://raw.githubusercontent.com/Yshi777-lang/lab/main/checker-lists.json"\;
-    volatile String[] white = {"https://yandex.ru", "https://gosuslugi.ru", "https://vk.com", "https://ozon.ru", "https://wildberries.ru", "https://sberbank.ru"\}\;
-    volatile String[] black = {"https://t.me", "https://discord.com", "https://x.com", "https://instagram.com", "https://facebook.com", "https://linkedin.com"\}\;
+    static final String LISTS_URL = "https://raw.githubusercontent.com/Yshi777-lang/lab/main/checker-lists.json";
+    volatile String[] white = {"https://yandex.ru", "https://gosuslugi.ru", "https://vk.com", "https://ozon.ru", "https://wildberries.ru", "https://sberbank.ru"};
+    volatile String[] black = {"https://t.me", "https://discord.com", "https://x.com", "https://instagram.com", "https://facebook.com", "https://linkedin.com"};
 
     protected void onCreate(Bundle b) {
         super.onCreate(b);
