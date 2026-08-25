@@ -3,9 +3,12 @@
     <string name="hint">Вставь URL</string>
     <string name="check">Проверить</string>
     <string name="all">Проверить все</string>
+    <string name="white_rf">Белый РФ</string>
+    <string name="black">Чёрный</string>
     <string name="checking">Проверяю…</string>
     <string name="wait">Выбери кнопку или вставь URL</string>
     <string name="ok">✅ Доступно:</string>
     <string name="fail">❌ Недоступно:</string>
     <string name="ms">мс</string>
+    <string name="exit_ip">Выходной IP:</string>
 </resources>

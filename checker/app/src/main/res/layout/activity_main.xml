@@ -11,5 +11,9 @@
         <Button android:id="@+id/btnTelegram" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Telegram" android:textSize="12sp"/>
         <Button android:id="@+id/btnAll" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/all" android:textSize="12sp"/>
     </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <Button android:id="@+id/btnWhite" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/white_rf" android:textSize="12sp"/>
+        <Button android:id="@+id/btnBlack" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/black" android:textSize="12sp"/>
+    </LinearLayout>
     <TextView android:id="@+id/result" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="@string/wait"/>
 </LinearLayout>
