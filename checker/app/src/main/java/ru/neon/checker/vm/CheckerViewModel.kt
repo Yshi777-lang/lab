@@ -20,31 +20,24 @@ import ru.neon.checker.data.ListsStore
 import java.io.File
 
 class CheckerViewModel(app: Application) : AndroidViewModel(app) {
-
     private val dao = AppDatabase.getDatabase(app).checkDao()
     private val store = ListsStore(app)
     val history: Flow<List<CheckRecord>> = dao.getAll()
-
     private val _report = MutableStateFlow(app.getString(R.string.wait))
     val report: StateFlow<String> = _report
-
     private val _busy = MutableStateFlow(false)
     val busy: StateFlow<Boolean> = _busy
-
     private fun runJob(block: suspend () -> Unit) = viewModelScope.launch { block() }
-
     private fun line(r: Checker.ProbeResult): String {
         val app = getApplication<Application>()
         return if (r.ok) "${app.getString(R.string.ok)} ${r.url} · HTTP ${r.code} · ${r.ms} ${app.getString(R.string.ms)}"
         else "${app.getString(R.string.fail)} ${r.url} · ${r.error}"
     }
-
     private suspend fun probeSave(url: String, listType: String, ip: String?): Checker.ProbeResult {
         val r = withContext(Dispatchers.IO) { Checker.probe(url) }
         dao.insert(CheckRecord(url = r.url, listType = listType, status = r.ok, latencyMs = r.ms.toInt(), exitIp = ip))
         return r
     }
-
     fun check(url: String) = runJob {
         val app = getApplication<Application>()
         _busy.value = true
@@ -52,16 +45,19 @@ class CheckerViewModel(app: Application) : AndroidViewModel(app) {
         _report.value = line(probeSave(url, "manual", null))
         _busy.value = false
     }
-
     fun checkAll() = runJob {
         val app = getApplication<Application>()
         _busy.value = true
         _report.value = app.getString(R.string.checking)
         val urls = listOf("https://github.com", "https://google.com", "https://chat.qwen.ai", "https://appteka.store", "https://t.me")
-        _report.value = urls.joinToString("\n") { line(probeSave(it, "all", null)) }
+        val sb = StringBuilder()
+        for (u in urls) {
+            if (sb.isNotEmpty()) sb.append('\n')
+            sb.append(line(probeSave(u, "all", null)))
+        }
+        _report.value = sb.toString()
         _busy.value = false
     }
-
     fun checkList(white: Boolean) = runJob {
         val app = getApplication<Application>()
         _busy.value = true
@@ -74,14 +70,12 @@ class CheckerViewModel(app: Application) : AndroidViewModel(app) {
         _report.value = sb.toString()
         _busy.value = false
     }
-
     fun refreshLists() = runJob {
         _busy.value = true
         val ok = withContext(Dispatchers.IO) { store.refreshFromRemote() }
-        _report.value = if (ok) "✅ Списки обновлены с GitHub" else "⚠️ GitHub недоступен — остались локальные"
+        _report.value = if (ok) "✅ Списки обновлены с GitHub" else "⚠ GitHub недоступен — остались локальные"
         _busy.value = false
     }
-
     fun export() = runJob {
         val app = getApplication<Application>()
         val records = history.first()
