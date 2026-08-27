@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">Neon Checker</string>
-    <string name="hint">Paste URL</string>
-    <string name="check">Check</string>
-    <string name="all">Check all</string>
     <string name="white_rf">White RU</string>
     <string name="black">Black</string>
     <string name="checking">Checking…</string>
@@ -11,4 +8,9 @@
     <string name="fail">❌ Unavailable:</string>
     <string name="ms">ms</string>
     <string name="exit_ip">Exit IP:</string>
+    <string name="history">History</string>
+    <string name="export">Export JSON</string>
+    <string name="add_url">Add URL</string>
+    <string name="save">Save</string>
+    <string name="lists">Lists</string>
 </resources>
